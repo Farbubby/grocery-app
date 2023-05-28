@@ -6,7 +6,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-let foodList = [
+let foodList: {type: string, name: string, price: Number}[] = [
   { type: "Fruits", name: "Apple", price: 1.99 },
   { type: "Vegetables", name: "Carrot", price: 0.99 },
   { type: "Meats", name: "Chicken", price: 4.99 },
@@ -40,9 +40,9 @@ let foodList = [
   { type: "Vegetables", name: "Pepper", price: 1.99 },
 ];
 
-let cart = [];
+let cart: {type: string, name: string, price: Number}[] = [];
 
-app.get("/getfood", (req, res) => {
+app.get("/getfood", (req: any, res: any) => {
   res.send(
     foodList.filter(
       (item) => item.type.toLowerCase() === req.query.type.toLowerCase()
@@ -50,11 +50,11 @@ app.get("/getfood", (req, res) => {
   );
 });
 
-app.get("/getcart", (req, res) => {
+app.get("/getcart", (req: any, res: any) => {
   res.send(cart);
 });
 
-app.post("/additem", (req, res) => {
+app.post("/additem", (req: any, res: any) => {
   cart.push(req.body);
   res.send("Successfully added item to cart!");
 });
