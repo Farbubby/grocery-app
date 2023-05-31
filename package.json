@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "startServer": "nodemon ./src/api/server.ts"
+    "start": "tsc && nodemon ./out/api/server.js"
   },
   "proxy": "http://localhost:3000",
   "dependencies": {
